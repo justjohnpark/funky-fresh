@@ -41,7 +41,7 @@ describe Pantry do
 
     describe 'pantry_item_names_and_plurals' do 
       it "should return an array containing the names and plurals of a pantry's items" do 
-        @pantry.pantry_item_names_and_plurals.should ==  ["apple", "apples", "milk", "milk", "sugar", "sugar", "kidney", "kidneys"]
+        @pantry.pantry_item_names_and_plurals.should ==  ["apple", "apples", "milk", "sugar", "kidney", "kidneys"]
       end
     end
     
