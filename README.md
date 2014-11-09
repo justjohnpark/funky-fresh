@@ -1,4 +1,5 @@
 <h1>Funky || Fresh</h1>
+<img src="https://travis-ci.org/simensta/funky-fresh.svg?branch=master">
 <h2>Purpose</h2>
 <p>
 Keep your food fresh, not funky, with our kitchen inventory app! Create multiple pantries for any situation, whether you're at home, work, grandma's house, or organizing pantries for a client. Receive daily alert emails for soon-to-expire items, as well as recipe suggestions based on said items. Got roommates? With our app, everyone in your house can stay up to date on what's in the kitchen and cut down on food waste.

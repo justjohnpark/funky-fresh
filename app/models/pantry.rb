@@ -11,14 +11,17 @@ class Pantry < ActiveRecord::Base
 
   validates :creator_id, :name, presence: true
 
+  def recipe_search_parameters
+    items.order(:expiration_date).limit(3).map{ |item| item.prototype.name}.flatten.join(', ')
+  end
 
-  def item_names_and_plural
-    array = items.order(:expiration_date).limit(3).map{ |item| [item.prototype.name, item.prototype.plural] }.flatten.uniq.join(', ')
+  def pantry_item_names_and_plurals
+    items.map{ |item| [item.prototype.name, item.prototype.plural] }.flatten.uniq
   end
 
   def comparators
     hash = {}
-    array = items.map{ |item| [item.prototype.name, item.prototype.plural] }.flatten
+    array = pantry_item_names_and_plurals
     array.each{ |name| hash[name] = true }
     hash
   end
@@ -30,12 +33,11 @@ class Pantry < ActiveRecord::Base
 
   def pantry_might_have(ingredients)
     # refactor so we call the previous methods within this method and return a hash 
-    pantry_items = comparators
-    item_names = pantry_items.keys
+    item_names = pantry_item_names_and_plurals
     might_have = []
     item_names.each do |item| 
       ingredients.each do |ingredient|
-        might_have << ingredient if ingredient.include?(item) || item.include?(ingredient)  #unless might_have.include?(ingredient)
+        might_have << ingredient if ingredient.include?(item) || item.include?(ingredient) 
       end
     end
     might_have.uniq - pantry_has(ingredients)
