@@ -15,8 +15,6 @@
 /log/*
 /tmp
 /.DS_Store
-/config/initializers/yummly.rb
-
 
 
 # Ignore application configuration
