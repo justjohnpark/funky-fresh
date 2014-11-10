@@ -17,13 +17,12 @@ class InvitesController < ApplicationController
   private
 
   def invite_params
-    params.require(:invite).permit(:email, :pantry_id)
+    params.require(:invite).permit(:email, :pantry_id, :sender_id)
   end
 
   def set_sender_id(invite)
     user = current_user
     invite.sender_id = user.id
-    invite.save
   end
 
 end

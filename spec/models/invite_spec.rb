@@ -28,10 +28,6 @@ describe Invite do
     end
 
 
-    it 'should validate presence of token' do
-        expect(invite).to validate_presence_of :token
-    end
-
     context 'associations' do
       it { should belong_to(:pantry) }
       it { should belong_to(:sender) }
