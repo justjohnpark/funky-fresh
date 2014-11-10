@@ -33,9 +33,15 @@ describe Pantry do
         @item4  = FactoryGirl.create(:item, prototype_id: @proto4.id, pantry_id: @pantry.id)
     end
 
-    describe 'item_names_and_plural' do 
-      it 'should return a string containing the names and plurals of the top (1..3) items about to expire' do 
-        @pantry.item_names_and_plural.should == "kidney, kidneys, milk, apple, apples"
+    describe 'recipe_search_parameters' do 
+      it "should return a string containing the names of a pantry's top (1..3) item(s) that is/are about expire " do 
+        @pantry.recipe_search_parameters.should ==  "kidney, milk, apple"
+      end
+    end
+
+    describe 'pantry_item_names_and_plurals' do 
+      it "should return an array containing the names and plurals of a pantry's items" do 
+        @pantry.pantry_item_names_and_plurals.should ==  ["apple", "apples", "milk", "sugar", "kidney", "kidneys"]
       end
     end
     

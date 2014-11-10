@@ -9,9 +9,9 @@
 
 		<strong>Ingredients</strong>: <%= match['recipe'].ingredients.join(', ') %> <br>
 
-		<strong>Exact pantry matches</strong>: <%= match['pantry_has'] %> <br> 
-		<strong>Pantry might be missing </strong>: <%= match['pantry_might_have'] %> <br>
-		<strong>Missing</strong>: <%= match['pantry_missing'] %> <br>
+		<strong>Exact pantry matches</strong>: <%= match['pantry_has'] if match['pantry_has'] != ''%> <br> 
+		<strong>Pantry might be missing </strong>: <%= match['pantry_might_have'] if match['pantry_might_have'] != ''%> <br>
+		<strong>Missing</strong>: <%= match['pantry_missing'] if match['pantry_missing'] != '' %> <br>
 		<strong>Rating</strong>: <%= match['recipe'].rating %><br>
 		<strong>Source</strong>: <%= match['sourceDisplayName']%>  
 	<% end  %>
