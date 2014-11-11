@@ -23,7 +23,8 @@ class ItemsController < ApplicationController
     # if item_params['expiration_date'].blank?
     #   @item = @pantry.items.create(item_params)
     # else
-    @item = @pantry.items.create(prototype_name: item_params['prototype_name'], expiration_date: Date.strptime(item_params['expiration_date'], '%m/%d/%Y').to_s )
+    @item = @pantry.items.create(prototype_name: item_params['prototype_name'], expiration_date: item_params['expiration_date'])
+    # @item = @pantry.items.create(prototype_name: item_params['prototype_name'], expiration_date: Date.strptime(item_params['expiration_date'], '%Y/%m/%d/').to_s )
 
     # if @item
     respond_to do |format|
@@ -39,8 +40,8 @@ class ItemsController < ApplicationController
 
   def autocomplete_date
     @prototype = Prototype.find_by_name(params[:term])
-    @date = Time.now + @prototype.shelf_life.days
-    @date = @date.strftime("%m/%d/%Y")
+    @date = Date.today + @prototype.shelf_life.days
+    # @date = @date.strftime("%Y/%m/%d")
     respond_to do |format|
       format.json {render json: {date: @date}.to_json}
       # format.js
