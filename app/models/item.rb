@@ -25,13 +25,12 @@ class Item < ActiveRecord::Base
   end
 
   def set_prototype_shelf_life
-    # self.prototype.update_attributes(shelf_life: (((self.expiration_date.to_time - Time.now)/3600)/24).ceil )
     self.prototype.update_attributes( shelf_life: self.expiration_date - Date.today )
   end
 
   def funky_or_fresh?(threshold)
-    min = Time.now  #Date.today
-    max = Time.now + threshold.days #min + threshold.days 
+    min = Date.today
+    max = min + threshold.days 
     self.expiration_date.between?(min, max)
   end
 end

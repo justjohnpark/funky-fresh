@@ -32,8 +32,6 @@ describe Item do
       
       it 'should be writable' do 
         @item.prototype_name = "ice cream cake"
-        # proto = FactoryGirl.create(:prototype, name: 'ice cream cake', plural: 'ice cream cake' )
-        # item = FactoryGirl.create(prototype_name: proto.name, pantry_id: @pantry.id, expiration_date: (Date.today + 7))
         @item.prototype.name.should == 'ice cream cake'
       end
     end
