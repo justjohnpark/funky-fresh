@@ -1,6 +1,5 @@
-<% if flash[:error] %>
-  <div class="error"><%= flash[:error] %></div>
-<% end %>
+
+
 <%= form_tag '/login', :class => "login", :id => "login_form" do %>
   <h1>Login</h1>
     <p>
@@ -15,7 +14,12 @@
   <p>
     <%= submit_tag "Login" %>
   </p>
+
+  <% if flash[:error] %>
+    <div class="notice"><%= flash[:error] %></div>
+  <% end %>
 <% end %>
+
 
 
 
@@ -24,31 +28,6 @@ $(document).ready(function($) {
 
   var email = false;
   var password = false;
-
-  //   $("input#email").on('keyup', function() {
-  //     var emailInput = $("form input:text").val();
-  //     var emailPattern = /[\w.]+@\w+(\.\w{2,})+/;
-  //     if (emailPattern.test(emailInput)) {
-  //       email = true;
-  //       console.log("in the email loop");
-  //     }
-  //   });
-
-  //   $("input#password").on('keyup', function() {
-  //   var passwordInput = $("input#password").val();
-  //   //Match 8 to 15 character string with at least one upper case letter, one lower case letter, and one digit (useful for passwords)
-  //   var passwordPattern = /((?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,15})/gm;
-  //   console.log("before password");
-  //   if (passwordPattern.test(passwordInput)) {
-  //     password = true;
-  //     console.log("password:")
-  //     console.log(password);
-  //     console.log("email:")
-  //     console.log(email);
-  //     console.log("in the password loop");
-  //     if (email === true && password === true) {$("input[name='commit']").removeAttr('disabled');}
-  //   }
-  // });
 
 });
 </script>
