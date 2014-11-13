@@ -13,7 +13,7 @@ class Item < ActiveRecord::Base
 
   def prototype_name=(prototype_name)
     self.prototype = Prototype.find_or_create_by(name: prototype_name.downcase)
-    self.prototype.plural = prototype_name.pluralize if self.prototype.plural.blank?
+    # self.prototype.plural = prototype_name.pluralize if self.prototype.plural.blank?
   end
 
   def prototype_name

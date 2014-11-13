@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, :password_digest, presence: true
   validates :email, uniqueness: :true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/ }
-  # validates :password, :length => {:minimum => 6}
+  validates :password, :length => {:minimum => 6}
 
   has_secure_password
 

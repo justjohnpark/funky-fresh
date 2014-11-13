@@ -16,7 +16,7 @@ class Pantry < ActiveRecord::Base
   end
 
   def pantry_item_names_and_plurals
-    items.map{ |item| [item.prototype.name, item.prototype.plural] }.flatten.uniq
+    items.map{ |item| [item.prototype.name, item.prototype.name.pluralize] }.flatten.uniq
   end
 
   def comparators
