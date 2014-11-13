@@ -34,4 +34,9 @@ class UserMailer < ActionMailer::Base
       mail(to: @user.email, subject: "Food expiration alert from your friends at Funky||Fresh")
     end
   end
+
+  def password_reset(user)  
+    @user = user  
+    mail :to => @user.email, :subject => "Password Reset"  
+  end  
 end

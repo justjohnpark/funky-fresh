@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :email, :password_digest, presence: true
   validates :email, uniqueness: :true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/ }
-  validates :password, :length => {:minimum => 6}
+  # validates :password, :length => {:minimum => 6}
 
   has_secure_password
 
@@ -34,6 +34,19 @@ class User < ActiveRecord::Base
   def has_pantry?(pantry)
     self.all_pantries.include?(pantry)
   end
+
+  def generate_token(column)  
+    begin  
+      self[column] = SecureRandom.urlsafe_base64  
+    end while User.exists?(column => self[column])  
+  end
+
+  def send_password_reset  
+  generate_token(:password_reset_token)  
+  self.password_reset_sent_at = Time.zone.now  
+  save!  
+  UserMailer.password_reset(self).deliver  
+end 
 
 
 end

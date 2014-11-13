@@ -12,8 +12,17 @@
   <p>
     <%= submit_tag "Login" %>
   </p>
+
+  <p>
+    <%= link_to "forgot password?", new_password_reset_path, class: "reset_password" %>
+  </p>
+  
   <% if flash[:error] %>
     <div class="notice"><%= flash[:error] %></div>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
   <% end %>
 <% end %>
 
