@@ -32,8 +32,7 @@ class Invite < ActiveRecord::Base
       InviteMailer.existing_user_invite(self).deliver
       self.recipient.pantries.push(self.pantry)
     else
-      puts "I AM THE TOKEN #{}"
-      InviteMailer.new_user_invite(self, 'http://localhost:3000' + Rails.application.routes.url_helpers.new_user_path(:invite_token => self.token)).deliver
+      InviteMailer.new_user_invite(self, 'https://funky-fresh.herokuapp.com' + Rails.application.routes.url_helpers.new_user_path(:invite_token => self.token)).deliver
     end
   end
 

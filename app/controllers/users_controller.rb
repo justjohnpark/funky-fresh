@@ -78,8 +78,9 @@ before_action :show_door, except: [:login_form, :login, :new, :create]
           session[:user_id] = @user.id
           redirect_to user_path(@user)
         else
+          flash[:error] = "Incorrect password"
           respond_to do |format|
-            format.js {render 'login_form'}
+            format.html {render 'login_form'}
           end
         end
       else
