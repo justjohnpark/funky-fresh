@@ -35,7 +35,9 @@ class UserMailer < ActionMailer::Base
     end
   end
 
-  def password_reset(user)  
+  def password_reset(user)
+    puts "=========="
+    puts "IN RESET MAILER"  
     @user = user  
     mail :to => @user.email, :subject => "Password Reset"  
   end  
