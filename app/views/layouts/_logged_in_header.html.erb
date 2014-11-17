@@ -1,9 +1,9 @@
 <ul>
 <li>Welcome, <%= @user.first_name %>!</li>
-<li><%= link_to root_path, remote: true, :class => "home", :id => "home" do %><i class="fa fa-home"></i><% end %></li>
+<li><%= link_to root_path, remote: true, :class => "home", :id => "home" do %><i class="fa fa-home fa-lg"></i><% end %></li>
 <li><%= link_to user_path(session[:user_id]), :id => "kitchen" do %><i class="fa fa-cutlery"></i><% end %></li>
-<li><%= link_to edit_user_path(session[:user_id]), :id => "edit_cog" do %><i class="fa fa-cogs"></i>
+<li><%= link_to edit_user_path(session[:user_id]), :id => "edit_cog" do %><i class="fa fa-cogs fa-lg"></i>
 <% end %></li>
-<li><%= link_to logout_path, :id => "logout_button" do %><i class="fa fa-sign-out"></i>
+<li><%= link_to logout_path, :id => "logout_button" do %><i class="fa fa-sign-out fa-lg"></i>
 <% end %></li>
 </ul>
