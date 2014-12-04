@@ -2,7 +2,7 @@
   <tr class="item-row">
       <td><%= item.prototype.name %></td>
       <td><%= item.expiration_date %></td>
-      <td><%= link_to image_tag('trash_can.png', :class => "trash_can"), user_pantry_item_path(@user, @pantry, item), remote: true, method: :delete, :class => "item-delete" %></td>
+        <td class="enable-delete"><%= link_to user_pantry_item_path(@user, @pantry, item), remote: true, method: :delete, :class => "item-delete", :id => "trash_can" do %><i class="fa fa-trash fa-lg"></i><% end %></td>
   </tr>
 
 <% end %>

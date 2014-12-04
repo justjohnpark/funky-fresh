@@ -1,5 +1,7 @@
 <ul>
-<li><%= link_to image_tag('home.png', id: "home"), root_path, remote: true, :class => "home" %></li>
-<li><%= link_to image_tag('sign_up.png', id: "sign_up"), new_user_path, remote: true, :class => "register" %></li>
-<li><%= link_to image_tag('login.png', id: "login"), login_path, remote: true, :class => "login" %></li>
+<li><%= link_to root_path, remote: true, :class => "home", :id => "home" do %><i class="fa fa-home fa-lg"></i><% end %></li>
+<li><%= link_to new_user_path, remote: true, :class => "register", :id => "sign_up" do %><i class="fa fa-user"></i>
+<% end %></li>
+<li><%= link_to login_path, remote: true, :class => "login", :id => "login" do %><i class="fa fa-sign-in"></i>
+<% end %></li>
 </ul>
