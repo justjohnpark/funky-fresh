@@ -1,4 +1,14 @@
+var tipsyPantryIcons = function(){
+  $("[id^='edit_pantry_button']").tipsy({gravity: "s", fallback: "Pantry Settings"});
+  $("[id^='new_item_button']").tipsy({gravity: "s", fallback: "Add Item"});
+  $("[id^='new_invite_button']").tipsy({gravity: "s", fallback: "Invite to Pantry"});
+  $(".opt-out").tipsy({gravity: "s", fallback: "Leave Pantry"});
+  $("i.fa.fa-book.fa-2x").tipsy({gravity: "s", fallback: "Find Recipes"});
+}
+
 $(function(){
+  tipsyPantryIcons();
+
   $('#accordion').on("click", "[id^='edit_pantry_button']", function(e){
     e.preventDefault();
     console.log(this);
@@ -53,7 +63,7 @@ $(function(){
     $("#new_pantry_button").show();
     $("#cancel_new_pantry_button").hide();
     $(".new_pantry")[0].reset();
-    elementFinder();
+    tipsyPantryIcons();
   });
 
   $(document).on("ajax:complete", "[id^='pantry_delete_button']", function(event, data, status, xhr){
@@ -120,5 +130,7 @@ $(function(){
   $(".new_pantry_button").click(function (event) {
     
   })
+
+
 });
 
