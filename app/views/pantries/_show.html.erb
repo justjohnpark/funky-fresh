@@ -1,21 +1,20 @@
-
-  <center>
+<center>
   <table class="pantry-nav">
   <tr>
     <td><div class="new-item-create">
-      <button class="new_item_button" id="new_item_button<%= @pantry.id%>"></button>
+      <button class="new_item_button" id="new_item_button<%= @pantry.id%>"><i class="fa fa-plus fa-2x"></i></button>
       <button class="cancel_new_item_button" id="cancel_new_item_button<%= @pantry.id%>">x</button>
     </td>
   </div>
   <% if @user.id == @pantry.creator_id %>
     <td>
-    <button class="edit_pantry_button" id="edit_pantry_button<%= @pantry.id%>"></button>
+    <button class="edit_pantry_button" id="edit_pantry_button<%= @pantry.id%>"><i class="fa fa-cog fa-2x"></i></button>
     <button class="cancel_edit_pantry_button" id="cancel_edit_pantry_button<%= @pantry.id%>">x</button>
     </td>
   <% end %>
-    <td><%= link_to image_tag('cookbook.png', :class => "cookbook"), user_pantry_recipes_path(@user, @pantry), target: "_blank" %></td>
+    <td><%= link_to user_pantry_recipes_path(@user, @pantry), target: "_blank", :id => "cookbook" do %><i class="fa fa-book fa-2x"></i><% end %></td>
   <% if @user.id == @pantry.creator_id %>
-    <td><button class="new_invite_button" id="new_invite_button<%=@pantry.id%>"></button>
+    <td><button class="new_invite_button" id="new_invite_button<%=@pantry.id%>"><i class="fa fa-users fa-lg"></i></button>
     <button class="cancel_new_invite_button" id="cancel_new_invite_button<%=@pantry.id%>">x</button></td>
     <% end %>
   <% if @user.id != @pantry.creator_id %>
