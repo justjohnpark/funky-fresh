@@ -3,7 +3,7 @@ var tipsyPantryIcons = function(){
   $("[id^='new_item_button']").tipsy({gravity: "s", fallback: "Add Item"});
   $("[id^='new_invite_button']").tipsy({gravity: "s", fallback: "Invite to Pantry"});
   $(".opt-out").tipsy({gravity: "s", fallback: "Leave Pantry"});
-  $("i.fa.fa-book.fa-2x").tipsy({gravity: "s", fallback: "Find Recipes"});
+  $("i.fa.fa-cutlery.fa-2x").tipsy({gravity: "s", fallback: "Find Recipes"});
 }
 
 $(function(){
@@ -104,27 +104,10 @@ $(function(){
     $("#new_invite_button" + index).show();
     $("#new_invite" + index).hide();
     $("#cancel_new_invite_button" + index).hide();
-    $(".new_invite")[0].reset();
-    $(".new_invite")[1].reset();
-    $(".new_invite")[2].reset();
-    $(".new_invite")[3].reset();
-    $(".new_invite")[4].reset();
-    $(".new_invite")[5].reset();
-    $(".new_invite")[6].reset();
-    $(".new_invite")[7].reset();
-    $(".new_invite")[8].reset();
-    $(".new_invite")[9].reset();
-    $(".new_invite")[10].reset();
-    $(".new_invite")[11].reset();
-    $(".new_invite")[12].reset();
-    $(".new_invite")[13].reset();
-    $(".new_invite")[14].reset();
-    $(".new_invite")[15].reset();
-    $(".new_invite")[16].reset();
-    $(".new_invite")[17].reset();
-    $(".new_invite")[18].reset();
-    $(".new_invite")[19].reset();
-    $(".new_invite")[20].reset();
+
+    $.each($(".new_invite"), function(index, value){
+      value.reset();
+    });
   });
 
   $(".new_pantry_button").click(function (event) {

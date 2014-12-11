@@ -12,7 +12,7 @@
     <button class="cancel_edit_pantry_button" id="cancel_edit_pantry_button<%= @pantry.id%>">x</button>
     </td>
   <% end %>
-    <td><%= link_to user_pantry_recipes_path(@user, @pantry), target: "_blank", :id => "cookbook" do %><i class="fa fa-book fa-2x"></i><% end %></td>
+    <td><%= link_to user_pantry_recipes_path(@user, @pantry), target: "_blank", :id => "cookbook" do %><i class="fa fa-cutlery fa-2x"></i><% end %></td>
   <% if @user.id == @pantry.creator_id %>
     <td><button class="new_invite_button" id="new_invite_button<%=@pantry.id%>"><i class="fa fa-users fa-lg"></i></button>
     <button class="cancel_new_invite_button" id="cancel_new_invite_button<%=@pantry.id%>">x</button></td>
