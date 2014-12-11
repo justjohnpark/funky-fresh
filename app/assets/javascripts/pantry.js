@@ -57,6 +57,7 @@ $(function(){
 
   $(document).on("ajax:complete", "#new_pantry", function(event, data, status, xhr) {
     console.log(event.target);
+    console.log("=============================")
     console.log(data.responseText);
     $("#creator_pantries").append(data.responseText);
     $("#new_pantry").hide();

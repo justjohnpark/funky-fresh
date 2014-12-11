@@ -9,8 +9,8 @@ class Pantry < ActiveRecord::Base
 
   has_many :invites
 
-  validates :creator_id, :name, presence: true
-
+  validates_presence_of :creator_id, :name
+  
   def recipe_search_parameters
     items.order(:expiration_date).limit(3).map{ |item| item.prototype.name}.flatten.join(', ')
   end
