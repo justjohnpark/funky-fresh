@@ -6,8 +6,25 @@ var tipsyPantryIcons = function(){
   $("i.fa.fa-cutlery.fa-2x").tipsy({gravity: "s", fallback: "Find Recipes"});
 }
 
+var toggleCreatePantrybutton =  function(){
+  var $formButton = $('#new_pantry input[type="submit"]')
+  var $formText = $('#new_pantry input[type="text"]')
+  
+  $formButton.attr('disabled',true);
+  $formText.keyup(function() {
+    if($(this).val() != '') {
+      $formButton.attr('disabled', false);
+    }
+    else{
+      $formButton.attr('disabled', true);
+    }
+  });
+}
+
 $(function(){
   tipsyPantryIcons();
+  toggleCreatePantrybutton();
+
 
   $('#accordion').on("click", "[id^='edit_pantry_button']", function(e){
     e.preventDefault();
@@ -41,7 +58,6 @@ $(function(){
 
   $(document).on("click", "#new_pantry_button", function(e){
     e.preventDefault();
-    console.log(this);
     $("#new_pantry_button").hide();
     $("#new_pantry").show();
     $("#cancel_new_pantry_button").show();
@@ -56,20 +72,17 @@ $(function(){
   });
 
   $(document).on("ajax:complete", "#new_pantry", function(event, data, status, xhr) {
-    console.log(event.target);
-    console.log("=============================")
-    console.log(data.responseText);
     $("#creator_pantries").append(data.responseText);
     $("#new_pantry").hide();
     $("#new_pantry_button").show();
     $("#cancel_new_pantry_button").hide();
     $(".new_pantry")[0].reset();
     tipsyPantryIcons();
+    toggleCreatePantrybutton();
   });
 
   $(document).on("ajax:complete", "[id^='pantry_delete_button']", function(event, data, status, xhr){
     var index = this.id.replace("pantry_delete_button", "");
-    console.log(index);
     $("#pantry" + index).remove();
   });
 
