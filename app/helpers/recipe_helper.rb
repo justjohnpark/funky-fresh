@@ -27,6 +27,7 @@ module RecipeHelper
 
 	def best_matches(search_results, pantry)
 		matches = search_results.matches.map{|match| {'id' => match['id'], 'ingredients' => match['ingredients'].join(', '), 'pantry_has' => pantry.pantry_has(match['ingredients']).join(', ') , 'pantry_might_have' => pantry.pantry_might_have(match['ingredients']).join(', '), 'pantry_missing' => pantry.pantry_missing(match['ingredients']).join(', '), 'sourceDisplayName' => match['sourceDisplayName']}}
+		recipes = get_relevant_data(matches)
 		# sorted_matches = 
 		raise
 		# matches = search_results.matches.map{|match| {'id' => match['id'], 'ingredients' => match['ingredients'].join(', '), 'pantry_has' => pantry.pantry_has(match['ingredients']).join(', ') , 'pantry_might_have' => pantry.pantry_might_have(match['ingredients']).join(', '), 'pantry_missing' => pantry.pantry_missing(match['ingredients']).join(', '), 'sourceDisplayName' => match['sourceDisplayName']}}
