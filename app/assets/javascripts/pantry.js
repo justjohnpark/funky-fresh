@@ -25,7 +25,6 @@ $(function(){
   tipsyPantryIcons();
   toggleCreatePantrybutton();
 
-
   $('#accordion').on("click", "[id^='edit_pantry_button']", function(e){
     e.preventDefault();
     console.log(this);
@@ -123,11 +122,5 @@ $(function(){
       value.reset();
     });
   });
-
-  $(".new_pantry_button").click(function (event) {
-    
-  })
-
-
 });
 
