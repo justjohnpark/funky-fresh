@@ -29,6 +29,7 @@ class Invite < ActiveRecord::Base
     pantry_object = Pantry.find_by_id(self.pantry_id)
     if self.is_a_user? && recipient.has_pantry?(pantry_object)
     elsif self.is_a_user? && !recipient.has_pantry?(pantry_object)
+      puts "nixon is a user already"
       InviteMailer.existing_user_invite(self).deliver
       self.recipient.pantries.push(self.pantry)
     else

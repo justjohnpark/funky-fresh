@@ -13,6 +13,9 @@ table.pantry_table {
 	box-shadow: 0px 5px 8px #504F4D;
 }
 
+i.fa.fa-cutlery.fa-2x{
+    font-size: 1.6em;
+}
 thead.pantry_head th {
 	border-bottom: 1px solid #ddf7c0;
 	padding: 8px 0px 8px 0px;
@@ -47,7 +50,6 @@ input#search-field {
 }
 
 .new_invite_button {
-	background-image: url('add-user.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 40px;
@@ -59,7 +61,6 @@ input#search-field {
 }
 
 .edit_pantry_button {
-	background-image: url('edit_cog.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 40px;
@@ -71,7 +72,6 @@ input#search-field {
 }
 
 .new_item_button {
-	background-image: url('add_item.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	width: 40px;
@@ -94,9 +94,10 @@ input#search-field {
  	outline: 0;
 }
 
-.trash_can {
+#trash_can {
  	width: 32px;
  	height: 32px;
+    color: black;
  }
 
 

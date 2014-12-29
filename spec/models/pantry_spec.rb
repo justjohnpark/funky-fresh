@@ -24,9 +24,9 @@ describe Pantry do
     before(:each) do     
         @pantry = FactoryGirl.create(:pantry)
         @proto1 = FactoryGirl.create(:prototype) 
-        @proto2 = FactoryGirl.create(:prototype, name: "milk", plural: "milk", shelf_life: 7) 
-        @proto3 = FactoryGirl.create(:prototype, name: "sugar", plural: "sugar", shelf_life: 547) 
-        @proto4 = FactoryGirl.create(:prototype, name: "kidney", plural: "kidneys", shelf_life: 3) 
+        @proto2 = FactoryGirl.create(:prototype, name: "milk", shelf_life: 7) 
+        @proto3 = FactoryGirl.create(:prototype, name: "sugar", shelf_life: 547) 
+        @proto4 = FactoryGirl.create(:prototype, name: "kidney", shelf_life: 3) 
         @item1  = FactoryGirl.create(:item, prototype_id: @proto1.id, pantry_id: @pantry.id)
         @item2  = FactoryGirl.create(:item, prototype_id: @proto2.id, pantry_id: @pantry.id)
         @item3  = FactoryGirl.create(:item, prototype_id: @proto3.id, pantry_id: @pantry.id)

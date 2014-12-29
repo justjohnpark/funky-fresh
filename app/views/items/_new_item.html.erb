@@ -12,11 +12,11 @@
   <% end %>
 
   <p>
-    <%= f.autocomplete_field :prototype_name, autocomplete_prototype_name_user_pantries_path(@user), 'data-auto-focus' => true, autofocus: true, :placeholder => "Name" %>
+    <%= f.autocomplete_field :prototype_name, autocomplete_prototype_name_user_pantries_path(@user), 'data-auto-focus' => true, autofocus: true, :placeholder => "Name", required: true %>
   </p>
 
   <p>
-    <%= f.text_field :expiration_date, placeholder: "YYYY/MM/DD" %>
+    <%= f.text_field :expiration_date, placeholder: "YYYY/MM/DD", :required => true %>
   </p>
 
   <p>

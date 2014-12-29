@@ -1,4 +1,14 @@
+var tipsyPantryIcons = function(){
+  $("[id^='edit_pantry_button']").tipsy({gravity: "s", fallback: "Pantry Settings"});
+  $("[id^='new_item_button']").tipsy({gravity: "s", fallback: "Add Item"});
+  $("[id^='new_invite_button']").tipsy({gravity: "s", fallback: "Invite to Pantry"});
+  $(".opt-out").tipsy({gravity: "s", fallback: "Leave Pantry"});
+  $("i.fa.fa-cutlery.fa-2x").tipsy({gravity: "s", fallback: "Find Recipes"});
+}
+
 $(function(){
+  tipsyPantryIcons();
+
   $('#accordion').on("click", "[id^='edit_pantry_button']", function(e){
     e.preventDefault();
     console.log(this);
@@ -31,7 +41,6 @@ $(function(){
 
   $(document).on("click", "#new_pantry_button", function(e){
     e.preventDefault();
-    console.log(this);
     $("#new_pantry_button").hide();
     $("#new_pantry").show();
     $("#cancel_new_pantry_button").show();
@@ -46,19 +55,16 @@ $(function(){
   });
 
   $(document).on("ajax:complete", "#new_pantry", function(event, data, status, xhr) {
-    console.log(event.target);
-    console.log(data.responseText);
     $("#creator_pantries").append(data.responseText);
     $("#new_pantry").hide();
     $("#new_pantry_button").show();
     $("#cancel_new_pantry_button").hide();
     $(".new_pantry")[0].reset();
-    elementFinder();
+    tipsyPantryIcons();
   });
 
   $(document).on("ajax:complete", "[id^='pantry_delete_button']", function(event, data, status, xhr){
     var index = this.id.replace("pantry_delete_button", "");
-    console.log(index);
     $("#pantry" + index).remove();
   });
 
@@ -94,31 +100,10 @@ $(function(){
     $("#new_invite_button" + index).show();
     $("#new_invite" + index).hide();
     $("#cancel_new_invite_button" + index).hide();
-    $(".new_invite")[0].reset();
-    $(".new_invite")[1].reset();
-    $(".new_invite")[2].reset();
-    $(".new_invite")[3].reset();
-    $(".new_invite")[4].reset();
-    $(".new_invite")[5].reset();
-    $(".new_invite")[6].reset();
-    $(".new_invite")[7].reset();
-    $(".new_invite")[8].reset();
-    $(".new_invite")[9].reset();
-    $(".new_invite")[10].reset();
-    $(".new_invite")[11].reset();
-    $(".new_invite")[12].reset();
-    $(".new_invite")[13].reset();
-    $(".new_invite")[14].reset();
-    $(".new_invite")[15].reset();
-    $(".new_invite")[16].reset();
-    $(".new_invite")[17].reset();
-    $(".new_invite")[18].reset();
-    $(".new_invite")[19].reset();
-    $(".new_invite")[20].reset();
-  });
 
-  $(".new_pantry_button").click(function (event) {
-    
-  })
+    $.each($(".new_invite"), function(index, value){
+      value.reset();
+    });
+  });
 });
 
