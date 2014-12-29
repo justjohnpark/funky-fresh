@@ -1,12 +1,4 @@
 module RecipeHelper
-
-	class Hash
-	  def only(*whitelist)
-	    {}.tap do |h|
-	      (keys & whitelist).each { |k| h[k] = self[k] }
-	    end
-	  end
-	end
 	
 	class YummlyWorker
 
