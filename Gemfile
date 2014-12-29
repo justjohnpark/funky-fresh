@@ -26,6 +26,8 @@ gem 'jquery-ui-rails'
 
 gem 'rails4-autocomplete'
 
+gem 'react-rails', '~> 0.12.0.0'
+
 # gem 'rails3-jquery-autocomplete', '~> 1.0.14'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -53,7 +55,7 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.2.0'
   gem 'pry'
   gem 'better_errors'
-  # gem "binding_of_caller"
+  gem "binding_of_caller"
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
