@@ -8,3 +8,11 @@ class RecipesController < ApplicationController
 		@best_matches = best_matches(@search_results ,@pantry) unless @search_results.matches.empty?
 	end
 end
+
+class Hash
+  def only(*whitelist)
+    {}.tap do |h|
+      (keys & whitelist).each { |k| h[k] = self[k] }
+    end
+  end
+end

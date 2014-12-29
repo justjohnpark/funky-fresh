@@ -1,13 +1,13 @@
 <% if @best_matches %>
 	<% @best_matches.each do |match| %>
-		<a href="<%= match['recipe'].attribution.url %>"><p><%= match['recipe'].name%></p></a>
-		<% if match['recipe'].thumbnail %>
-	    <a href="<%= match['recipe'].attribution.url %>"><img src="<%= match['recipe'].thumbnail %>"></a>
+		<a href="<%= match['recipe']['attribution']['url'] %>"><p><%= match['recipe']['name']%></p></a>
+		<% if match['recipe']['thumbnail'] %>
+	    <a href="<%= match['recipe']['attribution']['url'] %>"><img src="<%= match['recipe']['thumbnail'] %>"></a>
     <% else %>
     	<%= image_tag("ImageNotAvailable.png", :class => "noImageAvailable") %>
 		<% end %><br>
 
-		<strong>Ingredients</strong>: <%= match['recipe'].ingredients.join(', ') %> <br>
+		<strong>Ingredients</strong>: <%= match['recipe']['ingredients'].join(', ') %> <br>
 		<% unless match['pantry_has'] == '' %>
 			<strong>Exact pantry matches</strong>: <%= match['pantry_has'] %><br> 
 		<% end %>
@@ -17,7 +17,7 @@
 		<% unless match['pantry_missing'] == '' %>
 			<strong>Missing</strong>: <%= match['pantry_missing'] %> <br>
 		<% end %>
-		<strong>Rating</strong>: <%= match['recipe'].rating %><br>
+		<strong>Rating</strong>: <%= match['recipe']['rating'] %><br>
 		<strong>Source</strong>: <%= match['sourceDisplayName']%>  
 	<% end  %>
 <% else %>
